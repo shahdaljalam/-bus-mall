@@ -45,7 +45,7 @@ ul{
     font-size: small;
     margin-left: 20px;
     width: 170px;
-    height: 370px;
+    height: 850px;
     border: 3px solid black;
 }
 
@@ -53,14 +53,12 @@ ul{
 .part1 {
 
     display: grid;
-    grid-template-rows:1fr 2fr ;
+    grid-template-rows:1fr 1fr ;
     width: 750px;
-    gap :20px ;
     background: rgb(218, 215, 215);
     height: 50%;
-    padding: 20px;
     margin-left: 100px;
-    margin-top: 5px;
+    margin-top: 30pxpx;
 }
 
 
@@ -68,7 +66,7 @@ ul{
     display: grid;
     grid-template-columns: 100px 300px ;
     background:rgb(218, 215, 215);
-    height: 400px;
+    height: 900px;
 
 }
 
@@ -79,8 +77,9 @@ ul{
 }
 .image-section img {
     border: 3px solid black;
-    width: 230px;
-    height: 230px;
+    width: 247px;
+    height: 247px;
+    margin-top: 50px;
 }
 
 .logo{
@@ -91,6 +90,17 @@ ul{
     color: rgb(12, 11, 12);
     border: 3px solid black;
     text-align: center;
+    margin-top: 40px;
+    height: 400px;
+}
+
+#viewResult{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#result{
+    width: 100%
 }
 
 footer{
