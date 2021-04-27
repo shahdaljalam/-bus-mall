@@ -23,12 +23,14 @@ let imagesArray = [
     'usb.gif'
 ];
 
-console.log(1);
+
 
 const imageSec = document.getElementById('imageSection');
 const firstImage = document.getElementById('firstImage');
 const secondimage = document.getElementById('secondImage');
 const thirdimage = document.getElementById('thirdImage');
+const viewResult = document.getElementById('viewResult');
+const ContentsOfResult = document.getElementById('result');
 
 let clickNumber = 0;
 let firstImageIndex = 0;
@@ -36,14 +38,14 @@ let secondImageIndex = 0;
 let thirdImageIndex = 0;
 let attempt = 25;
 
-console.log(2);
+
 
 function ImageFunc(name) {
     this.name = name;
     this.img = `./images/${this.name}`;
-    this.shown =0;
+    this.shown = 0;
     this.clicks = 0;
-    
+
     ImageFunc.all.push(this);
 }
 
@@ -52,19 +54,21 @@ ImageFunc.all = []
 for (let i = 0; i < imagesArray.length; i++) {
     new ImageFunc(imagesArray[i]);
 }
-console.log(4);
+
 
 function eventHandler(e) {
+    console.log(e.target);
+    console.log(e.target.id);
     if ((e.target.id === 'firstImage' || e.target.id === 'thirdImage' || e.target.id === 'secondImage') && clickNumber < attempt) {
         if (e.target.id === 'firstImage') {
-            imageSec.all[firstImageIndex].clicks++;
+            ImageFunc.all[firstImageIndex].clicks++;
             console.log(firstImageIndex);
         }
         if (e.target.id === 'secondImage') {
-            imageSec.all[secondImageIndex].clicks++;
+            ImageFunc.all[secondImageIndex].clicks++;
         }
         if (e.target.id === 'thirdImage') {
-            imageSec.all[thirdImageIndex].clicks++;
+            ImageFunc.all[thirdImageIndex].clicks++;
 
         }
         clickNumber++;
@@ -74,7 +78,7 @@ function eventHandler(e) {
     }
 }
 
-console.log(5);
+
 
 function renderImg() {
     let firstIndex = RandomNumber(0, imagesArray.length - 1);
@@ -86,7 +90,7 @@ function renderImg() {
         secondIndex = RandomNumber(0, imagesArray.length - 1);
         thirdtIndex = RandomNumber(0, imagesArray.length - 1);
     } while (firstIndex === secondIndex || firstIndex === thirdtIndex || secondIndex === thirdtIndex);
-    
+
     firstImageIndex = firstIndex;
     secondImageIndex = secondIndex;
     thirdImageIndex = thirdtIndex;
@@ -99,15 +103,30 @@ function renderImg() {
     ImageFunc.all[secondIndex].shown++;
     ImageFunc.all[thirdtIndex].shown++;
 }
-console.log(6);
+
 
 imageSec.addEventListener('click', eventHandler);
+renderImg();
 
 function RandomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
-console.log(7);
+
+function ResultFunction(evt){
+    let ulElement = document.createElement('ul');
+    ContentsOfResult.appendChild(ulElement);
+
+    for (let i = 0 ; i < ImageFunc.all.length ; i++){
+        let liElement = document.createElement('li');
+        ulElement.appendChild(liElement);
+        liElement.textContent = `${ImageFunc.all[i].name} had a ${ImageFunc.all[i].clicks} votes, and was seen a ${ImageFunc.all[i].shown}.`;
+
+    }
+        viewResult.removeEventListener('click', ResultFunction);
+}
+
+viewResult.addEventListener('click', ResultFunction);
 
 renderImg();
