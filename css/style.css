@@ -33,7 +33,7 @@ header{
     grid-template-columns: 65px 1fr;
     align-items: center;
     padding: 0 10px;
-    border: 3px solid rgb(29, 28, 28);
+    border: 3px solid rgb(20, 20, 20);
 }
 
 header.img{
@@ -89,16 +89,22 @@ ul{
 }
 
 .prg{
-    color: rgb(12, 11, 12);
+    color: rgb(10, 10, 10);
     border: 3px solid rgb(70, 68, 68);
     text-align: center;
-    margin-top: 40px;
-    height: 400px;
+    margin-top: 10px;
+    height: 130px;
 }
 
 #viewResult{
     margin-top: 5px;
     margin-left: 5px;
+}
+
+#myChart{
+    margin-top: 50px;
+    width: 700px;
+    height: 420px;
 }
 
 #result{
@@ -109,7 +115,7 @@ footer{
     display: flex;
     align-items: center;
     background:rgb(218, 215, 215);
-    color: rgb(12, 11, 11);
+    color: rgb(26, 25, 25);
     text-align: center;
     border: 3px solid rgb(70, 68, 68);
     margin-bottom: 20px;
